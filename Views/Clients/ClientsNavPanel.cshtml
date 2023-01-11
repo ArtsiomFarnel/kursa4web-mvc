@@ -1,0 +1,26 @@
+﻿<style>
+    .control-menu {
+        float: left;
+        width: 220px;
+        box-shadow: 10px 4px 10px 3px #888;
+        padding: 10px;
+        border: 1px solid dimgray;
+    }
+</style>
+<div class="control-menu">
+    <div class="btn-group-vertical">
+                <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Clients" asp-action="Debtors">Должники</a>
+        <br />
+                <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Clients" asp-action="ClientsByCategoryStudent">Категория: Студенты</a>
+
+                <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Clients" asp-action="ClientsByCategorySchooler">Категория: Школьники</a>
+
+                <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Clients" asp-action="ClientsByCategoryScientist">Категория: Ученые</a>
+        <br />
+                <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Clients" asp-action="ClientsByBookOrPublication">По издательству</a>
+
+                <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Clients" asp-action="ClientsByDateAndBook">По книге</a>
+
+                <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Clients" asp-action="ClientsByDateAndOperations">По операции</a>
+    </div>
+</div>

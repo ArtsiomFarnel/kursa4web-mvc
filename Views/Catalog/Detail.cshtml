@@ -1,0 +1,57 @@
+﻿@model Kursach.Models.Catalog.DetailViewModel
+@{ 
+    ViewData["Title"] = "Подробнее о " + Model.Description.Book.Name;
+}
+
+<style>
+    .main-container {
+        padding: 10px;
+        box-shadow: 10px 4px 10px 3px #888;
+        box-sizing: border-box;
+        border: 1px solid dimgray;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .one-block {
+        display: inline-block;
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
+    }
+
+    .img-size {
+        width: 20%;
+        border-color: white;
+    }
+
+    p {
+        font-size: 20px;
+    }
+</style>
+<div class="main-container">
+    <div class="one-block">
+    <h3>@Model.Description.Book.Name</h3>
+    <img class="img-size" src="@Url.Content(Model.Description.Book.Image)" alt="@Model.Description.Book.Name" align="left" />
+
+    <p>Издание: @Model.Description.Publication.Name</p>
+        @foreach (var item in Model.Description.AboutBooks)
+        {
+            <b>Включает в себя:</b> @item.LiteratureName
+            <b>Автор(ы): </b> @item.AuthorName
+        }
+    <p>Есть в наличии:</p>
+
+    @foreach (var item in Model.Locations)
+    {
+        <p>
+            <b>Название библиотеки</b> - @item.LibraryName<br />
+            <b>Адрес библиотеки</b> - @item.LibraryAddress<br />
+
+            <a asp-action="GetBook" asp-controller="Profile" asp-route-bookId="@item.CopyId">
+                <input type="button" value="Получить" class="btn btn-outline-dark" style="border-radius: 0px;" />
+            </a>
+
+        </p>
+    }
+        </div>
+</div>

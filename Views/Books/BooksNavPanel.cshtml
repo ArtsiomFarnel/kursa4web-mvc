@@ -1,0 +1,18 @@
+﻿<style>
+    .control-menu {
+        float: left;
+        width: 220px;
+        box-shadow: 10px 4px 10px 3px #888;
+        padding: 10px;
+        border: 1px solid dimgray;
+    }
+</style>
+<div class="control-menu">
+    <div class="btn-group-vertical">
+        <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Books" asp-action="WriteOffBooks">Управление книгами</a>
+
+        <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Books" asp-action="CopyList">Книги в данном зале</a>
+
+        <a class="btn btn-outline-dark" style="border-radius: 0px;" asp-area="" asp-controller="Books" asp-action="CopyByStorage">Книги по хранилищу</a>
+    </div>
+</div>

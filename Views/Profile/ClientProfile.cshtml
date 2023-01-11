@@ -1,0 +1,5 @@
+﻿@model Kursach.Models.Profile.ProfileViewModel
+
+<p>ФИО - @Model.User.Name</p>
+<p>Абонемент - @Model.Client.IdentityNumber</p>
+<a asp-controller="Profile" asp-action="DebtList">Текущие книги</a>

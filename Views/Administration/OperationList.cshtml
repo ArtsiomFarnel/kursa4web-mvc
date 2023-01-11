@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Kursach.Models.Administration.OperationsViewModel>
+@{ await Html.RenderPartialAsync("AdminNavPanel"); }
+
+<table class="table table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Client</th>
+            <th>Worker</th>
+            <th>Copy</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Date</td>
+                <td>@item.Client</td>
+                <td>@item.Worker</td>
+                <td>@item.Copy</td>
+            </tr>
+        }
+    </tbody>
+</table>

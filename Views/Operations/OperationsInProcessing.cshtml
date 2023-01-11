@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Kursach.Models.Operations.UnconfirmedOperationsViewModel>
+
+<table class="table table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Client Identity Number</th>
+            <th>Copy Identity Number</th>
+            <th>Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Date</td>
+            <td>@item.ClientIdentityNumber</td>
+            <td>@item.CopyIdentityNumber</td>
+            <td>
+                <a asp-controller="Operations" asp-action="AcceptOperation" asp-route-id="@item.Id">Accept</a>
+                <a asp-controller="Operations" asp-action="RejectOperation" asp-route-id="@item.Id">Reject</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

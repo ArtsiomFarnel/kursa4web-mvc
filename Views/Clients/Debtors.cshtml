@@ -1,0 +1,29 @@
+﻿@{ await Html.RenderPartialAsync("ClientsNavPanel"); }
+@model IEnumerable<Kursach.Models.Clients.DebtorViewModel>
+
+    <style>
+        .show-table {
+            margin-left: 240px;
+        }
+    </style>
+    <div class="show-table">
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Client Identity Number</th>
+                    <th>Copy Identity Number</th>
+                    <th>Last Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Client.IdentityNumber</td>
+                        <td>@item.Copy.IdentityNumber</td>
+                        <td>@item.LastDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

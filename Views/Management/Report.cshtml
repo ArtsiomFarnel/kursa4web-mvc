@@ -1,0 +1,18 @@
+﻿@{ await Html.RenderPartialAsync("ManageNavPanel"); }
+
+<style>
+    .show-table {
+        margin-left: 240px;
+    }
+</style>
+<div class="show-table">
+    <form method="get">
+        <label>First Date:</label>
+        <input type="date" name="fdate" />
+        <label>Second Date:</label>
+        <input type="date" name="sdate" />
+        <input type="submit" value="find" />
+    </form>
+    <br />
+    Количество обслуженных читателей: @ViewBag.Clients
+</div>

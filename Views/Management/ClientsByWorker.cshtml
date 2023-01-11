@@ -1,0 +1,39 @@
+﻿@{ await Html.RenderPartialAsync("ManageNavPanel"); }
+@model IEnumerable<Kursach.Models.Management.ClientsByWorkerViewModel>
+
+    <style>
+        .show-table {
+            margin-left: 240px;
+        }
+    </style>
+    <div class="show-table">
+        <form>
+            <label>Worker Identity Number:</label>
+            <input type="text" name="worker" />
+            <label>First Date:</label>
+            <input type="date" name="fdate" />
+            <label>Second Date:</label>
+            <input type="date" name="sdate" />
+            <input type="submit" value="find" />
+        </form>
+
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>IdentityNumber</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.IdentityNumber</td>
+                        <td>@item.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>

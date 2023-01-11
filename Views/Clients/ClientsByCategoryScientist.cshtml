@@ -1,0 +1,43 @@
+﻿@{ await Html.RenderPartialAsync("ClientsNavPanel"); }
+@model IEnumerable<Kursach.Models.Clients.ScientistViewModel>
+
+    <style>
+        .show-table {
+            margin-left: 240px;
+        }
+    </style>
+    <div class="show-table">
+        <form>
+            <label>Input organiztion: </label>
+            <input type="text" name="orgName" />
+            <label>Input theme: </label>
+            <input type="text" name="thName" />
+            <input type="submit" value="find" />
+        </form>
+
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>IdentityNumber</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Date of Register</th>
+                    <th>Organization</th>
+                    <th>Theme</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Client.IdentityNumber</td>
+                        <td>@item.Client.Name</td>
+                        <td>@item.Client.Address</td>
+                        <td>@item.Client.Date</td>
+                        <td>@item.Scientist.OrganizationName</td>
+                        <td>@item.Scientist.ScientificTheme</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>

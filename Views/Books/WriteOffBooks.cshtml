@@ -1,0 +1,34 @@
+﻿@{ await Html.RenderPartialAsync("BooksNavPanel"); }
+@model IEnumerable<Kursach.Models.Books.CopyViewModel>
+
+    <style>
+        .show-table {
+            margin-left: 240px;
+        }
+    </style>
+    <div class="show-table">
+        <a asp-controller="Books" asp-action="AddNewCopy">Add new copy</a>
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Identity Number</th>
+                    <th>Storage Location</th>
+                    <th>Amount</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdentityNumber</td>
+                        <td>@item.StorageLocation</td>
+                        <td>@item.Amount</td>
+                        <td>
+                            <a asp-controller="Books" asp-action="WriteOffCopy" asp-route-copyId="@item.Id">Write off</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>

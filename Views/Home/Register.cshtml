@@ -1,0 +1,14 @@
+﻿@model Kursach.Models.Home.RegisterViewModel
+
+<form asp-action="Register" asp-controller="Home">
+    <div>
+        <div class="form-group">
+            <label asp-for="Address">Input Your Address</label>
+            <input asp-for="Address" />
+            <input hidden asp-for="LibraryId" value="@ViewBag.LibId"/>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-outline-dark" />
+        </div>
+    </div>
+</form>

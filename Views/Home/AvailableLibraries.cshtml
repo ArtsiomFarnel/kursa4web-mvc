@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Kursach.Models.Home.AvailableRoomsViewModel>
+@{
+    ViewData["Title"] = "Библиотеки";
+}
+<style>
+    .main-container {
+        padding: 10px;
+        box-shadow: 10px 4px 10px 3px #888;
+        box-sizing: border-box;
+        border: 1px solid dimgray;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .one-block {
+        display: inline-block;
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
+    }
+
+    .img-size {
+        width: 20%;
+        border-color: white;
+    }
+
+    p {
+        font-size: 20px;
+    }
+</style>
+
+<div class="text-center">
+    <h2>Доступные библиотеки на сайте</h2>
+</div>
+
+<div class="main-container">
+    @foreach (var item in Model)
+    {
+        <div class="one-block">
+            <h2>@item.LibraryName</h2>
+            <p><b>Описание:</b> @item.Description</p>
+            <p><b>Адрес:</b> @item.Address</p>
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("user") || User.IsInRole("client")))
+            {
+                <a asp-controller="Home" asp-action="Register" asp-route-libId="@item.LibraryId">
+                    <input type="button" value="Зарегистрироваться" class="btn btn-outline-dark" style="border-radius: 0px;" />
+                </a>
+            }
+
+        </div>
+        <br />
+    }
+</div>

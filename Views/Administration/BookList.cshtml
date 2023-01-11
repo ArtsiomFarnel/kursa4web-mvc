@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Kursach.Models.Administration.BooksViewModel>
+@{ await Html.RenderPartialAsync("AdminNavPanel"); }
+
+<a asp-controller="Administration" asp-action="InsertBook">Insert</a>
+<table class="table table-bordered table-sm">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Publication #</th>
+            <th>Book #</th>
+            <th>Amount</th>
+            <th>Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.PublicationId</td>
+            <td>@item.BookId</td>
+            <td>@item.Amount</td>
+            <td>
+                <a asp-controller="Administration" asp-action="UpdateBook" asp-route-id="@item.Id">Update</a>
+                <a asp-controller="Administration" asp-action="DeleteBook" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@{ await Html.RenderPartialAsync("BooksNavPanel"); }
+@model IEnumerable<Kursach.Models.Books.CopyViewModel>
+
+    <style>
+        .show-table {
+            margin-left: 240px;
+        }
+    </style>
+    <div class="show-table">
+        <form>
+            <label>Select search type: </label>
+            <input value="added" type="radio" name="flag" checked /> - added
+            <input value="writenOff" type="radio" name="flag" /> - writenOff
+            <label>Input first date</label>
+            <input type="date" name="fdate" />
+            <label>Input second date</label>
+            <input type="date" name="sdate" />
+            <input type="submit" value="find" />
+        </form>
+
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Identity Number</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdentityNumber</td>
+                        <td>@item.Amount</td>
+                        <td>@item.Date</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>

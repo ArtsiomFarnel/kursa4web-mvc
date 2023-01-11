@@ -1,0 +1,35 @@
+﻿@{ await Html.RenderPartialAsync("BooksNavPanel"); }
+@model IEnumerable<Kursach.Models.Database.Entities.Copy>
+
+    <style>
+        .show-table {
+            margin-left: 240px;
+        }
+    </style>
+    <div class="show-table">
+        <form>
+            <label>Input shelf number: </label>
+            <input name="shelf" type="number" />
+            <input type="submit" value="find" />
+        </form>
+
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Identity Number</th>
+                    <th>Storage Id</th>
+                    <th>Is Written Off</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdentityNumber</td>
+                        <td>@item.StorageId</td>
+                        <td>@item.IsWrittenOff</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+</div>

@@ -1,0 +1,48 @@
+﻿@model Kursach.Models.Account.LoginViewModel
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<style>
+    .login-form-parent {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-width: 1px;
+        border-color: dimgray;
+        border-style: solid;
+        box-shadow: 10px 4px 10px 3px #888;
+        padding: 20px;
+        text-align: center;
+    }
+</style>
+
+<form asp-action="Login" asp-controller="Account" asp-antiforgery="true">
+    
+    <div class="login-form-parent">
+        <h3>Вход</h3>
+        <div class="form-group" style="padding-top: 5px;">
+            <label asp-for="Email">Email</label><br />
+            <input type="text" asp-for="Email" />
+            <span asp-validation-for="Email" />
+        </div>
+        <div class="form-group" style="padding-top: 5px;">
+            <label asp-for="Password">Пароль</label><br />
+            <input asp-for="Password" />
+            <span asp-validation-for="Password" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Войти" class="btn btn-outline-dark" style="border-radius: 0px;" />
+            <a asp-action="Registration" asp-controller="Account">
+                <input type="button" value="Регистрация" class="btn btn-outline-dark" style="border-radius: 0px;" />
+            </a>
+        </div>
+        <div class="validation" asp-validation-summary="ModelOnly"></div>
+    </div>
+</form>
+
+@section scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

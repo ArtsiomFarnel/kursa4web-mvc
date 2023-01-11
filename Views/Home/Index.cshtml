@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Kursach.Models.Home.PopularBooksViewModel>
+@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    .main-container {
+        padding: 10px;
+        box-shadow: 10px 4px 10px 3px #888;
+        box-sizing: border-box;
+        border: 1px solid dimgray;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .one-block {
+        display: inline-block;
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
+    }
+
+    .img-size {
+        width: 20%;
+        border-color: white;
+    }
+
+    p {
+        font-size: 20px;
+    }
+</style>
+
+<div class="text-center">
+    <h2>Топ 5 популярных книг на сайте</h2>
+</div>
+
+<div class="main-container">
+    @foreach (var item in Model)
+    {
+        <div class="one-block">
+            <h2>@item.BookName</h2>
+            <img class="img-thumbnail img-size" src="@Url.Content(item.Image)" alt="@item.BookName" align="left" />
+            <p><b>Краткое описание:</b> @item.Description</p>
+            <p><b>Категория:</b> @item.CategoryName</p>
+            <p><b>Год:</b> @item.Year</p>
+            <p>
+                <a asp-controller="Catalog" asp-action="Detail" asp-route-id="@item.Id">
+                    <input type="button" value="Подробнее" class="btn btn-outline-dark" style="border-radius: 0px;" />
+                </a>
+            </p>
+            <br />
+        </div>
+    }
+</div>

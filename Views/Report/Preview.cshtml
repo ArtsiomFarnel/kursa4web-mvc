@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Kursach.Models.Database.Entities.Operation>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<button id="PDFbtn" class="btn btn-outline-dark" style="border-radius: 0px;">Скачать отчет в PDF</button>
+
+<div id="PDFcontainer" style="text-align:center">
+    <h3>Operations</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Operation Name</th>
+                <th>Operation Date</th>
+                <th>Client Id</th>
+                <th>Worker Id</th>
+                <th>Copy Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <th>@item.Name</th>
+                <th>@item.Date</th>
+                <th>@item.ClientId</th>
+                <th>@item.WorkerId</th>
+                <th>@item.CopyId</th>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $("#PDFbtn").click(function () {
+        var HTMLstring = $("#PDFcontainer").html();
+        HTMLstring = HTMLstring.replace(/</g, "StrTag").replace(/>/g, "EndTag");
+        window.open('../Report/CreateReport?html=' + HTMLstring, '_blank');
+    });
+</script>
